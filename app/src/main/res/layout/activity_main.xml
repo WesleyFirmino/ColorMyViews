@@ -1,32 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/box_one_text"
+        android:id="@+id/boxOne"
         style="@style/whiteBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
         android:text="@string/box_one"
-        android:layout_margin="14dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/box_two_text"
+        android:id="@+id/boxTwo"
         style="@style/whiteBox"
         android:layout_width="@dimen/layout_weight"
         android:layout_height="@dimen/layout_height"
+        android:layout_marginTop="7dp"
         android:text="@string/box_two"
         android:textAlignment="center"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="@id/box_one_text"
-        app:layout_constraintTop_toBottomOf="@+id/box_one_text" />
+        app:layout_constraintBottom_toTopOf="@+id/guideLine"
+        app:layout_constraintStart_toStartOf="@id/boxOne"
+        app:layout_constraintTop_toBottomOf="@+id/boxOne" />
+
+    <TextView
+        android:id="@+id/boxThree"
+        style="@style/whiteBox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:text="@string/box_three"
+        app:layout_constraintBottom_toTopOf="@+id/boxFour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/boxTwo"
+        app:layout_constraintTop_toBottomOf="@+id/boxOne"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+
+    <TextView
+        android:id="@+id/boxFour"
+        style="@style/whiteBox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:text="@string/box_four"
+        app:layout_constraintBottom_toTopOf="@+id/boxFive"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintStart_toEndOf="@+id/boxTwo"
+        app:layout_constraintTop_toBottomOf="@+id/boxThree" />
+
+    <TextView
+        android:id="@+id/boxFive"
+        style="@style/whiteBox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:text="@string/box_five"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideLine"
+        app:layout_constraintStart_toEndOf="@+id/boxTwo"
+        app:layout_constraintTop_toBottomOf="@+id/boxFour" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

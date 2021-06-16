@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="margin_small">12dp</dimen>
     <dimen name="box_text_size">24sp</dimen>
     <dimen name="layout_height">130dp</dimen>
     <dimen name="layout_weight">130dp</dimen>
