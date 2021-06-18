@@ -94,6 +94,10 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
 
+        
+        
+        
+        
         val editor = sharedPreferences.edit()
 
         editor.putInt("boxOne", boxOneColor)
