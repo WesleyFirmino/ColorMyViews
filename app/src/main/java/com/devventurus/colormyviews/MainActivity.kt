@@ -13,6 +13,7 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -21,8 +22,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class MainActivity : AppCompatActivity() {
     var boxes = arrayOf( R.id.boxOne, R.id.boxTwo, R.id.boxThree, R.id.boxFour, R.id.boxFive )
     var colorLocate: Int = R.color.gray
+    lateinit var contraintImage: ConstraintLayout
     lateinit var sharedPreferences : SharedPreferences
-    val shareButton: FloatingActionButton? by lazy { findViewById(R.id.share) }
+    val shareButton: FloatingActionButton? by lazy { findViewById(R.id.shareButton) }
     private val SOLICITAR_PERMISSAO = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +36,6 @@ class MainActivity : AppCompatActivity() {
             findViewById<TextView>(box).setBackgroundResource(sharedPreferences.getInt("$box", colorLocate))
         }
     }
-
-
 
     fun onButtonClick(view: View) {
         colorLocate = when (view.id) {
