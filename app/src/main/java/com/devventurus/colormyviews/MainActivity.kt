@@ -31,6 +31,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        contraintImage = findViewById(R.id.imageContraint)
+
+        shareButton?.setOnClickListener {
+            takeScreenshot(contraintImage)?.let { it -> checkSharedPermission(it) }
+        }
+
         sharedPreferences = getSharedPreferences("colors", MODE_PRIVATE)
         for (box in boxes) {
             findViewById<TextView>(box).setBackgroundResource(sharedPreferences.getInt("$box", colorLocate))
@@ -56,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Return a bitmap
-    fun takeScreenshot(view: View) {
+    fun takeScreenshot(view: View) : Bitmap? {
 
         //Defina um bitmap com o mesmo tamanho da visualização
         val returnedBitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
@@ -76,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         view.draw(canvas)
 
         //chama a permissao
-        checkSharedPermission(returnedBitmap)
+        return returnedBitmap
     }
 
     //Valida verificação
