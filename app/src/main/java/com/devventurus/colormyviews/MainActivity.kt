@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         canvasImage = findViewById(R.id.imageCanvas)
 
         shareButton?.setOnClickListener {
-            takeScreenshot(canvasImage)?.let { it -> checkSharedPermission(it) }
+            checkSharedPermission(canvasImage.takeScreeshot())
         }
 
         sharedPreferences = getSharedPreferences("colors", MODE_PRIVATE)
@@ -72,29 +72,6 @@ class MainActivity : AppCompatActivity() {
             putInt("$box", colorLocate)
             commit()
         }
-    }
-
-    // Captura tela retorna o bitmap
-    fun takeScreenshot(view: View): Bitmap? {
-
-        //Defina um bitmap com o mesmo tamanho da visualização
-        val returnedBitmap = Bitmap.createBitmap(view.width, 600, Bitmap.Config.ARGB_8888)
-
-        //Vincule uma tela a ele
-        val canvas = Canvas(returnedBitmap)
-
-        //Obtenha o background
-        val backgroundDrawable = view.background
-
-        if (backgroundDrawable != null) {
-            backgroundDrawable.draw(canvas) //Obtenha o background em drawable, then draw it on the canvas
-        } else {
-            canvas.drawColor(Color.WHITE) //Se caso o não tiver o background em drawable a imagem será impressa em branco
-        }
-
-        view.draw(canvas)
-
-        return returnedBitmap
     }
 
     //Valida verificação
